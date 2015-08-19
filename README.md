@@ -43,8 +43,17 @@ console.log(clean_obj)
 // }
 ```
 
-Currently supporting
+### Currently supporting
 - String
 - Number
 - Date
 - Boolean
+
+### Options
+You can pass options to roomba:
+``` js
+var clean = roomba(opts, schema)
+```
+Available options are:
+
+- `remove_extra_fields` - By default, fields that are not in the schema are kept untouched, you can remove them from the cleaned obj by setting this to true.

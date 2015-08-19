@@ -11,7 +11,7 @@ function vaccum (type, val) {
   return clean({key: val}).key
 }
 
-describe('general', function () {
+describe('sanitizers', function () {
 
   // boolean
   it('should return a boolean', function () {
@@ -66,6 +66,22 @@ describe('general', function () {
     expect(vaccum(Date, '1abc')).to.be.null
     expect(vaccum(Date, null)).to.be.null
     expect(vaccum(Date, NaN)).to.be.null
-
   })
+
+})
+
+describe('extra fields', function () {
+  var schema = { a: String }
+  var obj = { a: 1, b: 2 }
+
+  it('should keep extra fields', function () {
+    var clean = roomba(schema)
+    expect(clean(obj)).to.have.property('b')
+  })
+
+  it('should remove extra fields when option is set', function () {
+    var clean = roomba({ remove_extra_fields: true }, schema)
+    expect(clean(obj)).to.not.have.property('b')
+  })
+
 })
