@@ -20,6 +20,7 @@ describe('sanitizers', function () {
     expect(vaccum(Boolean, '')).to.equal(false)
     expect(vaccum(Boolean, NaN)).to.equal(false)
     expect(vaccum(Boolean, null)).to.equal(false)
+    expect(vaccum(Boolean, undefined)).to.equal(false)
     expect(vaccum(Boolean, 'true')).to.equal(true)
     expect(vaccum(Boolean, 'false')).to.equal(false)
     expect(vaccum(Boolean, '0')).to.equal(true)
@@ -34,8 +35,8 @@ describe('sanitizers', function () {
     expect(vaccum(String, 0.1)).to.equal('0.1')
     expect(vaccum(String, 'true')).to.equal('true')
     expect(vaccum(String, 'false')).to.equal('false')
-    expect(vaccum(String, null)).to.equal('')
-    expect(vaccum(String, null)).to.equal('')
+    expect(vaccum(String, null)).to.be.null
+    expect(vaccum(String, undefined)).to.be.undefined
   })
 
   // number
