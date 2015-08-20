@@ -69,6 +69,13 @@ describe('sanitizers', function () {
     expect(vaccum(Date, NaN)).to.be.null
   })
 
+  // custom
+  it('should use custom function', function () {
+    var custom = function (input) {
+      return input * 2
+    }
+    expect(vaccum(custom, 1)).to.equal(2)
+  })
 })
 
 describe('extra fields', function () {
