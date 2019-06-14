@@ -4,17 +4,15 @@
   "description": "clean your dirty objects",
   "main": "./lib",
   "scripts": {
-    "lint": "standard",
-    "test": "standard && cd test && mocha *.js"
+    "test": "prettier --list-different \"**/*.js\" && cd test && mocha *.js"
   },
   "author": "Michael Derazon <mderazon@hotmail.com>",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.2.5",
-    "standard": "^5.1.0"
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2"
   },
   "repository": {
     "type": "git",
